@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  db:
+    container_name: employee-timesheet-dev
+    image: postgres
+    environment:
+        POSTGRES_PASSWORD: test
+        POSTGRES_USER: postgres
+        POSTGRES_DB: employee-timesheet-dev
+    ports:
+      - "5433:5432"
+  test:
+      container_name: employee-timesheet-test
+      image: postgres
+      environment:
+          POSTGRES_PASSWORD: test 
+          POSTGRES_USER: postgres
+          POSTGRES_DB: employee-timesheet-test
+      ports:
+         - "5434:5432"

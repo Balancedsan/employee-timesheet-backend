@@ -1,0 +1,33 @@
+{
+  "name": "employee-test",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./src/server.js",
+    "start:services": "docker-compose up -d",
+    "start:dev": "nodemon ./src/server.js",
+    "test": "jest --watchAll --runInBand ",
+    "sequelize-dev-setup": "npx sequelize --help",
+    "sequelize:db-dev": "npx sequelize db:create --env development",
+    "sequelize:migrate-dev": "npx sequelize db:create --env development",
+    "sequelize:seed-dev": "npx sequelize db:seed:all --env development",
+    "sequelize-test-setup": " npm run sequelize:migrate-test && npm run sequelize:seed-test",
+    "sequelize:db-test": "npx sequelize db:create --env test",
+    "sequelize:migrate-test": "npx sequelize db:migrate --env test",
+    "sequelize:seed-test": "npx sequelize db:seed:all --env test"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "~4.16.1",
+    "moment": "^2.27.0",
+    "morgan": "^1.10.0",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "jest": "^26.4.2",
+    "nodemon": "^2.0.4",
+    "pg": "^8.3.3",
+    "sequelize-cli": "^6.2.0",
+    "supertest": "^4.0.2"
+  }
+}

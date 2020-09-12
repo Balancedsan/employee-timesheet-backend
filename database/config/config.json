@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "test",
+    "database": "employee-timesheet-dev",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port":5433,
+    "logging":false
+  },
+  "test": {
+    "username": "postgres",
+    "password": "test",
+    "database": "employee-timesheet-test",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port":5434,
+    "logging":false,
+    "acquire":20000, 
+    "idle": 20000, 
+    "evict":10000
+  }
+}
