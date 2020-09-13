@@ -57,9 +57,14 @@ const checkOutTimeSheetController = async (req, res, next) => {
       ],
     });
 
+    if(!latestTimeSheet){
+      const error = new ErrorBase("No timesheet entry for user found, unable to checkout",400,400);
+      throw error;
+    }
+
 
     if (latestTimeSheet && latestTimeSheet.dataValues.status === "check out") {
-      const error = new ErrorBase("unable to checkout", 400, 400);
+      const error = new ErrorBase("Unable to checkout", 400, 400);
       throw error;
     }
 

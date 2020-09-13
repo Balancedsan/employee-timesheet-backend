@@ -179,10 +179,23 @@ describe("TimeSheetController", () => {
           .end((req, res) => {
             expect(res.body).toEqual({
               errorCode: 400,
-              message: "unable to checkout",
+              message: "Unable to checkout",
             });
             done();
           });
+      });
+
+      it('should throw an error 400 if there are no entry in the database', (done) => {
+        request(app)
+        .post("/api/timesheet/checkOut")
+        .send({ userId: 1 })
+        .end((req, res) => {
+          expect(res.body).toEqual({
+            errorCode: 400,
+            message: "No timesheet entry for user found, unable to checkout",
+          });
+          done();
+        });
       });
     });
 

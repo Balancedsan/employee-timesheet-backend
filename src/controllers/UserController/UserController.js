@@ -5,7 +5,7 @@ const ErrorBase = require("../../errors/ErrorBase");
 const UserController = Express.Router();
 
 
-const CreateUserController = async (req,res,next) => {
+const getUserController = async (req,res,next) => {
     try {
       const {userid} = req.params; 
       const user = await model.User.findOne({
@@ -34,7 +34,7 @@ const CreateUserController = async (req,res,next) => {
     }
   };
 
-  UserController.get("/:userid",CreateUserController);
+  UserController.get("/:userid",getUserController);
 
 
   module.exports = UserController;
