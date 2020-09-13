@@ -82,7 +82,6 @@ describe("TimeSheetController", () => {
       it("should throw an error 400 if the latest updated  entry for the user has already check in but has not checkout yet ", async (done) => {
         const timeStampCheckIn1 = new Date("Sep 12, 2020 03:24:00");
         const timeStampCheckIn2 = new Date("Sep 12, 2020 04:24:00");
-        const timeStampCheckIn3 = new Date("Sep 12, 2020 05:24:00");
 
         const timeStampCheckOut1 = new Date("Sep 12, 2020 03:25:00");
         const timeStampCheckOut2 = new Date("Sep 12, 2020 04:25:00");
@@ -349,8 +348,8 @@ describe("TimeSheetController", () => {
         .expect(200)
         .end((req, res) => {
           expect(res.body).toEqual([
-            { checkIn: "4:24:AM", checkOut: "4:25:AM" },
             { checkIn: "4:24:AM", checkOut: "5:25:AM" },
+            { checkIn: "4:24:AM", checkOut: "4:25:AM" },
             { checkIn: "3:24:AM", checkOut: "3:25:AM" },
           ]);
           done();

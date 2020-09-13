@@ -96,7 +96,8 @@ const getTimeSheetController = async (req, res, next) => {
       order: [
         ["checkOut", "DESC"],
         ["checkIn", "DESC"]
-      ]
+      ],
+      limit:5
     });
 
 

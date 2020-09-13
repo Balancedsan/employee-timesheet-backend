@@ -7,14 +7,15 @@
     "start:services": "docker-compose up -d",
     "start:dev": "nodemon ./src/server.js",
     "test": "jest --watchAll --runInBand ",
-    "sequelize-dev-setup": "npx sequelize --help",
+    "sequelize-test-setup": "npm run sequelize:db-test && npm run sequelize:migrate-test && npm run sequelize:seed-test",
+    "sequelize-dev-setup": "npx run sequelize:db-dev && npm run sequelize:migrate-dev && npm run sequelize:seed-dev",
+    "sequelize:db-test": "npx sequelize db:create --env test",
+    "sequelize:migrate-test": "npx sequelize db:migrate --env test",
+    "sequelize:seed-test": "npx sequelize db:seed:all --env test",
     "sequelize:db-dev": "npx sequelize db:create --env development",
     "sequelize:migrate-dev": "npx sequelize db:create --env development",
     "sequelize:seed-dev": "npx sequelize db:seed:all --env development",
-    "sequelize-test-setup": " npm run sequelize:migrate-test && npm run sequelize:seed-test",
-    "sequelize:db-test": "npx sequelize db:create --env test",
-    "sequelize:migrate-test": "npx sequelize db:migrate --env test",
-    "sequelize:seed-test": "npx sequelize db:seed:all --env test"
+
   },
   "dependencies": {
     "cors": "^2.8.5",
